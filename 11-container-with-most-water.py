@@ -16,7 +16,7 @@ def maxArea(height):
         # further optimization
         if max_area >= largest_height * (end - start): 
             break  # i.e we should stop since we won't obtain a bigger area than the current maximum area we have
-                   # If the largest height multiplied by the remaining length won't exceed out current maximum then smaller heights certainly wouldn't    
+                   # If the largest height multiplied by the remaining length won't exceed our current maximum then smaller heights certainly wouldn't    
     return max_area
         
         
