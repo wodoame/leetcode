@@ -54,7 +54,7 @@ def bin_search(nums, target, start, end):
         return bin_search(nums, target, mid + 1, end)
     elif mid_element < nums[start]: # then condition b must have failed because of mid_element is less than nums[start], this also means that target is not present at condition c
         return bin_search(nums, target, start, mid - 1)
-    else: # condition b must have failed because target is not present
+    else: # condition b must have failed because target is not present (mid_element is greater than nums[start] so that's the only possibility left)
         return bin_search(nums, target, mid + 1, end)
         
 ```
