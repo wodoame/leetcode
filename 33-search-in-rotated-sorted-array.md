@@ -1,4 +1,7 @@
 ```python
+# I checked the left sorted part linearly and the right part logarithmically but that's not good enough even though my solution was accepted
+# I must check both sides logarithmically
+
 def search(nums, target):
     i = 0
     previous = nums[0]
@@ -28,8 +31,6 @@ def search(nums, target):
         
 nums = [4, 5, 6, 7, 0, 1, 2, 3]
 
-# I checked the left sorted part linearly and the right part logarithmically but that's not good enough even though my solution was accepted
-# I must check both sides logarithmically
 
 ```
 ```python
