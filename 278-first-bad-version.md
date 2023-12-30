@@ -1,7 +1,8 @@
+```python
 def firstBadVersion(self, n):
-    #  something similar to binary search would probably  work
-    #  Although I don't remember how to implement it vividly
+    # The concept of binary search was used 
     # 1, 2, 3, 4, 5, 6, 7, ... 
+    # isBadVersion() is provided by leetcode
     start = 1 
     end = n 
     c = (start + end) // 2 
@@ -16,6 +17,7 @@ def firstBadVersion(self, n):
                 return c + 1
             start = c
             c = (start + end) // 2
+```
 
 
         
