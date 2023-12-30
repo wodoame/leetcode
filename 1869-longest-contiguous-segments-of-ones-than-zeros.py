@@ -15,7 +15,6 @@ def checkZeroOnes(s):
             one_count = 0
         
         # We update the max_1 and max_0 after every iteration. 
-        # If we do this in the conditionals the last contiguous segment counted will not be updated 
         max_1 = max(max_1, one_count)
         max_0 = max(max_0, zero_count)
 
