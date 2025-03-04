@@ -15,40 +15,41 @@ nums = [0, 0, 0, 0, 0, 0, 0, 1,1,1,2,2,3, 3, 3, 3, 3, 3, 3,3, 3, 3, 3, 3, 3, 3]
 #     return ans
 
 # solution 2
-# def topKFrequent(nums: list, k):
-#     d = defaultdict(int)
-#     for num in nums:
-#         d[num] += 1
-    
-#     heap = [(value, key) for key, value in d.items()]
-#     heapq.heapify(heap)
-#     return [val[1] for val in heapq.nlargest(k, heap)]
-
-def topKFrequent(nums, k):
-    # Step 1: Count the frequency of each number
-    freq_map = defaultdict(int)
+def topKFrequent(nums: list, k):
+    d = defaultdict(int)
     for num in nums:
-        freq_map[num] += 1
+        d[num] += 1
     
-    # Step 2: Create a list of buckets where the index represents frequency
-    # The maximum possible frequency is len(nums)
-    max_freq = max(freq_map.values())
-    buckets = [[] for _ in range(max_freq + 1)]
+    heap = [(value, key) for key, value in d.items()]
+    heapq.heapify(heap)
+    return [val[1] for val in heapq.nlargest(k, heap)]
+
+# solution 3
+# def topKFrequent(nums, k):
+#     # Step 1: Count the frequency of each number
+#     freq_map = defaultdict(int)
+#     for num in nums:
+#         freq_map[num] += 1
     
-    # Step 3: Group numbers by their frequency
-    for num, freq in freq_map.items():
-        buckets[freq].append(num)
+#     # Step 2: Create a list of buckets where the index represents frequency
+#     # The maximum possible frequency is len(nums)
+#     max_freq = max(freq_map.values())
+#     buckets = [[] for _ in range(max_freq + 1)]
     
-    # Step 4: Extract the top k frequent numbers
-    ans = []
-    for i in range(max_freq, 0, -1):  # Iterate from highest frequency to lowest
-        if buckets[i]:  # If there are numbers with this frequency
-            ans.extend(buckets[i])  # Add them to the answer
-            if len(ans) >= k:  # Stop once we have k numbers
-                break 
+#     # Step 3: Group numbers by their frequency
+#     for num, freq in freq_map.items():
+#         buckets[freq].append(num)
     
-    # Return only the first k elements (in case we added more than k)
-    return ans[:k]
+#     # Step 4: Extract the top k frequent numbers
+#     ans = []
+#     for i in range(max_freq, 0, -1):  # Iterate from highest frequency to lowest
+#         if buckets[i]:  # If there are numbers with this frequency
+#             ans.extend(buckets[i])  # Add them to the answer
+#             if len(ans) >= k:  # Stop once we have k numbers
+#                 break 
+    
+#     # Return only the first k elements (in case we added more than k)
+#     return ans[:k]
 
 print(topKFrequent(nums, 3)) # [1, 2]
     
